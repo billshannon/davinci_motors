@@ -18,8 +18,9 @@ gem 'guard-bundler'
 gem 'guard-rspec'
 gem 'factory_girl_rails'
 
-group :test, :darwin, :development do
+group :test, :development do
   gem 'ruby_gntp'
+  gem 'faker'
 end
 
 group :test do
