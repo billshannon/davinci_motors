@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate', '~> 3.0.5'
+
+gem 'will_paginate-bootstrap'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record

@@ -20,24 +20,41 @@ feature 'User Authentication' do
     expect(page).to have_text('Signed in as bob@smith.com')
   end
 
-  feature 'Creating Users' do
-    scenario 'allows existing users to login' do
-      user = FactoryGirl.create(:user)
 
-      visit '/'
+  scenario 'allows existing users to login' do
+    user = FactoryGirl.create(:user)
 
-      expect(page).to have_link('Login')
+    visit '/'
 
-      click_link('Login')
+    expect(page).to have_link('Login')
 
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
+    click_link('Login')
 
-      click_button 'Login'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
 
-      expect(page).to have_text("Welcome back #{user.first_name.titleize}")
-      expect(page).to have_text("Signed in as #{user.email}")
-    end
+    click_button 'Login'
+
+    expect(page).to have_text("Welcome back #{user.first_name.titleize}")
+    expect(page).to have_text("Signed in as #{user.email}")
+  end
+
+
+  scenario 'does not allow existing users to login with an invalid password' do
+    user = FactoryGirl.create(:user, password: 'sup3rskrit')
+
+    visit '/'
+
+    expect(page).to have_link('Login')
+
+    click_link('Login')
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'NOT_YOUR_PASSWORD'
+
+    click_button 'Login'
+
+    expect(page).to have_text("Invalid email or password")
   end
 
   scenario 'allows a logged in user to logout' do

@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :find_car, only: [:edit, :update]
 
   def index
-    @cars = Car.all
+    @cars = Car.all.paginate(:page => params[:page], per_page:10)
   end
 
   def edit
@@ -24,6 +24,15 @@ class CarsController < ApplicationController
     redirect_to cars_path,
       notice: "#{@car.year} #{@car.make} #{@car.model} created"
   end
+
+  # def destroy
+  #   @car.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
 
   private
 
