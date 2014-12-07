@@ -19,7 +19,7 @@ feature 'Creating Cars' do
       expect(page).to have_content('Ford')
       expect(page).to have_content('Mustang')
       expect(page).to have_content('1967')
-      expect(page).to have_content('2300')
+      expect(page).to have_content('$2,300')
     end
   end
 
@@ -37,7 +37,7 @@ feature 'Creating Cars' do
       expect(page).to have_content('Ford')
       expect(page).to have_content('Mustang')
       expect(page).to have_content('1967')
-      expect(page).to have_content('2300')
+      expect(page).to have_content('$2,300')
     end
 
     click_link 'New Car'
@@ -57,12 +57,12 @@ feature 'Creating Cars' do
       expect(page).to have_content('Ford')
       expect(page).to have_content('Mustang')
       expect(page).to have_content('1967')
-      expect(page).to have_content('2300')
+      expect(page).to have_content('$2,300')
 
       expect(page).to have_content('Toyota')
       expect(page).to have_content('Camary')
       expect(page).to have_content('1987')
-      expect(page).to have_content('4500')
+      expect(page).to have_content('$4,500')
     end
   end
 end
