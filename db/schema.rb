@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127040756) do
+ActiveRecord::Schema.define(version: 20141207232017) do
 
   create_table "cars", force: true do |t|
     t.string   "make"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20141127040756) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "verified_email",  default: false
+    t.string   "token",           default: ""
   end
 
 end

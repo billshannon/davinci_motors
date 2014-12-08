@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  user_notifier:
+    signed_up:
+      subject: "Please verify your e-mail address"
