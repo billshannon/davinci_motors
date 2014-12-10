@@ -21,6 +21,8 @@ gem 'guard-bundler'
 gem 'guard-rspec'
 gem 'factory_girl_rails'
 gem 'bootstrap-sass'
+gem 'rspec-collection_matchers'
+gem 'sendgrid'
 
 group :test, :development do
   gem 'ruby_gntp'

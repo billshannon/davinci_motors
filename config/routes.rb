@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options host: 'localhost', port: 3000
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete '/logout',
          to: 'sessions#destroy'
+  get 'verification/:token', to: 'users#verify', as: 'verify_email'
 
   resources :cars
 
